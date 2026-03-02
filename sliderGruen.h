@@ -1,0 +1,4 @@
+#ifndef SLIDERGRUEN_H
+#define SLIDERGRUEN_H
+
+#endif // SLIDERGRUEN_H

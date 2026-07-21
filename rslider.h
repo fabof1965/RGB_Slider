@@ -8,7 +8,7 @@ class rSlider : public Slider
     Q_OBJECT
 
 public:
-    rSlider(QWidget* eltern);
+    rSlider(QWidget* parent);
 };
 
 #endif // RSLIDER_H

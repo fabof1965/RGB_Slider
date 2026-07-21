@@ -5,22 +5,22 @@
 #include <rslider.h>
 #include <gslider.h>
 #include <bslider.h>
-#include <farblabel.h>
+#include <ColorLabel.h>
 
 class RGB : public QMainWindow
 {
 private:
-    rSlider* rotSlider;
-    gSlider* gruenSlider;
-    bSlider* blauSlider;
-    Farblabel* farbeRot, *farbeGruen, *farbeBlau, *mischfarbe;
-    QLabel* rotLabel, *rotLabelWert, *gruenLabel, *gruenLabelWert, *blauLabel, *blauLabelWert, *mischfarbeLabel;
+    rSlider *sliderRed;
+    gSlider *sliderGreen;
+    bSlider *sliderBlue;
+    ColorLabel *colorRed, *colorGreen, *colorBlue, *rgbColorMix;
+    QLabel *redLabel, *redLabelValue, *greenLabel, *greenLabelValue, *blueLabel, *blueLabelValue, *rgbColorMixLabel;
 
 public:
     RGB();
     ~RGB();
     void setupUI();
     void setConnections();
-    void setStartColor(Farblabel* label);
+    void setStartColor(ColorLabel* label);
 };
 #endif // RGB_H

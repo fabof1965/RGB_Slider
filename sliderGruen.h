@@ -1,4 +1,4 @@
-#ifndef SLIDERGRUEN_H
-#define SLIDERGRUEN_H
+#ifndef sliderGreen_H
+#define sliderGreen_H
 
-#endif // SLIDERGRUEN_H
+#endif // sliderGreen_H

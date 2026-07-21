@@ -1,5 +1,5 @@
 #include "slider.h"
 
-Slider::Slider(QWidget* eltern) : QSlider(eltern)
+Slider::Slider(QWidget* parent) : QSlider(parent)
 {
 }

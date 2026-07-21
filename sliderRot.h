@@ -1,4 +1,4 @@
-#ifndef SLIDERROT_H
-#define SLIDERROT_H
+#ifndef sliderRed_H
+#define sliderRed_H
 
-#endif // SLIDERROT_H
+#endif // sliderRed_H

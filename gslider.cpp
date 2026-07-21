@@ -1,6 +1,6 @@
 #include "gslider.h"
 
-gSlider::gSlider(QWidget* eltern) : Slider(eltern)
+gSlider::gSlider(QWidget* parent) : Slider(parent)
 {
     this->setObjectName("Grün Slider");
     this->setOrientation(Qt::Horizontal);

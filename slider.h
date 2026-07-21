@@ -7,7 +7,7 @@
 class Slider : public QSlider
 {
 public:
-    Slider(QWidget* eltern);
+    Slider(QWidget* parent);
 };
 
 

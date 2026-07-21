@@ -7,7 +7,7 @@ class bSlider : public Slider
 {
     Q_OBJECT
 public:
-    bSlider(QWidget* eltern);
+    bSlider(QWidget* parent);
 };
 
 #endif // BSLIDER_H

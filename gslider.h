@@ -7,7 +7,7 @@ class gSlider : public Slider
 {
     Q_OBJECT
 public:
-    gSlider(QWidget* eltern);
+    gSlider(QWidget* parent);
 };
 
 #endif // GSLIDER_H

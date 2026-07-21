@@ -86,7 +86,7 @@ void RGB::setConnections()
 void RGB::setStartColor(ColorLabel* label)
 {
     QPixmap colorField = QPixmap(label->width(), label->height());
-    farbFeld.fill(QColor(Qt::black));
+    colorField.fill(QColor(Qt::black));
     label->setPixmap(colorField); //zu Programmstart schwarz
 
 }

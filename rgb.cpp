@@ -10,13 +10,15 @@ RGB::RGB()
     setConnections();
 }
 
-RGB::~RGB() {}
+RGB::~RGB() {
+
+}
 
 void RGB::setupUI()
 {
     this->resize(500, 380);
 
-    redLabel = new QLabel("Red", this);
+    redLabel = new QLabel(redName, this);
     redLabel->setGeometry(10, 10, 300, 30);
 
     sliderRed = new rSlider(this);
@@ -24,7 +26,7 @@ void RGB::setupUI()
     redLabelValue = new QLabel("0", this);
     redLabelValue->setGeometry(320, 50, 30, 30);
 
-    greenLabel = new QLabel("Green", this);
+    greenLabel = new QLabel(greenName, this);
     greenLabel->setGeometry(10, 90, 300, 30);
 
     sliderGreen = new gSlider(this);
@@ -32,7 +34,7 @@ void RGB::setupUI()
     greenLabelValue = new QLabel("0", this);
     greenLabelValue->setGeometry(320, 130, 30, 30);
 
-    blueLabel = new QLabel("Blue", this);
+    blueLabel = new QLabel(blueName, this);
     blueLabel->setGeometry(10, 170, 300, 30);
 
     sliderBlue = new bSlider(this);
@@ -41,39 +43,41 @@ void RGB::setupUI()
     blueLabelValue->setGeometry(320, 210, 30, 30);
 
     colorRed = new ColorLabel(this);
-    colorRed->setGeometry(360, 50, 30, 30);
-    colorRed->setObjectName("Red");
+    setupColorLabel(colorRed, redName, 50);
 
     colorGreen = new ColorLabel(this);
-    colorGreen->setObjectName("Green");
-    colorGreen->setGeometry(360, 130, 30, 30);
+    setupColorLabel(colorGreen, greenName, 130);
 
     colorBlue = new ColorLabel(this);
-    colorBlue->setObjectName("Blue");
-    colorBlue->setGeometry(360, 210, 30, 30);
+    setupColorLabel(colorBlue, blueName, 210);
 
     rgbColorMix = new ColorLabel(this, sliderRed, sliderGreen, sliderBlue);
-    rgbColorMix->setObjectName("RGB_Color_Mix");
     rgbColorMix->setGeometry(120, 250, 90, 90);
+    rgbColorMix->setObjectName(rgbName);
     setStartColor(rgbColorMix);
 
-    rgbColorMixLabel = new QLabel("RGB_Color_Mix", this);
+    rgbColorMixLabel = new QLabel(rgbName, this);
     rgbColorMixLabel->setGeometry(125, 350, 80, 30);
+}
+
+void RGB::setupColorLabel(ColorLabel *labelColor, QString colorName, int yPos)
+{
+    labelColor->setGeometry(colorLabel_xPos, yPos, colorLabelWidth, colorLabelHeight);
+    labelColor->setObjectName(colorName);
 }
 
 void RGB::setConnections()
 {
-    QObject::connect(sliderRed, SIGNAL(valueChanged(int)), redLabelValue, SLOT(setNum(int)));
-    QObject::connect(sliderRed, SIGNAL(valueChanged(int)), colorRed, SLOT(adjustColor(int)));
-    QObject::connect(sliderRed, SIGNAL(valueChanged(int)), rgbColorMix, SLOT(adjustColorMix()));
+    setSignalSlotConnection(sliderRed, redLabelValue, colorRed);
+    setSignalSlotConnection(sliderGreen, greenLabelValue, colorGreen);
+    setSignalSlotConnection(sliderBlue, blueLabelValue, colorBlue);
+}
 
-    QObject::connect(sliderGreen, SIGNAL(valueChanged(int)), greenLabelValue, SLOT(setNum(int)));
-    QObject::connect(sliderGreen, SIGNAL(valueChanged(int)), colorGreen, SLOT(adjustColor(int)));
-    QObject::connect(sliderGreen, SIGNAL(valueChanged(int)), rgbColorMix, SLOT(adjustColorMix()));
-
-    QObject::connect(sliderBlue, SIGNAL(valueChanged(int)), blueLabelValue, SLOT(setNum(int)));
-    QObject::connect(sliderBlue, SIGNAL(valueChanged(int)), colorBlue, SLOT(adjustColor(int)));
-    QObject::connect(sliderBlue, SIGNAL(valueChanged(int)), rgbColorMix, SLOT(adjustColorMix()));
+void RGB::setSignalSlotConnection(QSlider *colorSlider, QLabel *colorValueLabel, ColorLabel *color_Label)
+{
+    QObject::connect(colorSlider, SIGNAL(valueChanged(int)), colorValueLabel, SLOT(setNum(int)));
+    QObject::connect(colorSlider, SIGNAL(valueChanged(int)), color_Label, SLOT(adjustColor(int)));
+    QObject::connect(colorSlider, SIGNAL(valueChanged(int)), rgbColorMix, SLOT(adjustColorMix()));
 }
 
 void RGB::setStartColor(ColorLabel* label)

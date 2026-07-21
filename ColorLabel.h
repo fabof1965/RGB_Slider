@@ -13,7 +13,6 @@ private:
     Q_OBJECT
 
     int valueRed, valueGreen, valueBlue;
-    // QSlider* red, *green, *blue;
     rSlider *red;
     gSlider *green;
     bSlider *blue;

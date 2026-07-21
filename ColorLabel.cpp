@@ -15,15 +15,15 @@ void ColorLabel::adjustColor(int sliderValue)
     QColor singleColor;
     QPixmap rgb = QPixmap(this->width(), this->height());
 
-    if(this->objectName() == "red")
+    if(this->objectName() == "Red")
     {
         singleColor = QColor(sliderValue, 0, 0);
     }
-    else if(this->objectName() == "Grün")
+    else if(this->objectName() == "Green")
     {
         singleColor = QColor(0, sliderValue, 0);
     }
-    else if(this->objectName() == "blue")
+    else if(this->objectName() == "Blue")
     {
         singleColor = QColor(0, 0, sliderValue);
     }

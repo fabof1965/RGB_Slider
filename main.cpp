@@ -5,8 +5,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    RGB* rgbFenster = new RGB();
-    rgbFenster->show();
+    RGB* rgbWindow = new RGB();
+    rgbWindow->show();
 
     return a.exec();
 }
